@@ -1,4 +1,3 @@
-<?php if (isset($posts) && !empty($posts)): ?>
 <div class="table-responsive flex-grow-1">
     <div class="text-end">
         <button class="text-white bg-primary border-0 rounded-2 p-2"
@@ -14,6 +13,7 @@
             </tr>
         </thead>
         <tbody>
+            <?php if (isset($posts) && !empty($posts)): ?>
             <?php foreach($posts as $post): ?>
             <tr>
                 <td><?= esc($post->id); ?></td>
@@ -27,10 +27,11 @@
                 </td>
             </tr>
             <?php endforeach; ?>
+            <?php endif; ?>
         </tbody>
     </table>
 </div>
-<?php endif; ?>
+
 <div class="d-flex justify-content-center mt-3">
     <?= $pager->links('default', 'bootstrap_full') ?>
 </div>
